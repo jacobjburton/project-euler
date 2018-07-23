@@ -7,6 +7,7 @@
 # Find the sum of all the multiples of 3 or 5 below 1000                #
 #########################################################################
 
+# solution 1
 # class Multiples
     
 #     def multiples_of_3_and_5
@@ -31,21 +32,38 @@
 # multiples = Multiples.new
 # multiples.sum_of_multiples(multiples.multiples_of_3_and_5)
 
-# puts (1...1000).select { |x| x % 3 == 0 || x % 5 == 0 }.reduce(:+)
+
+# solution 2
+# puts (1...1000).select { |i| i % 3 == 0 || i % 5 == 0 }.reduce(&:+)
 
 class Multiples
 
     def multiples
-        (1..999).select do |i|
-            i % 3 == 0 || i % 5 == 0
-        end
+        multiples = (1...1000).select { |i| i % 3 == 0 || i % 5 == 0 }
     end
 
     def sumMultiples(multiples)
-        puts total = multiples.inject(&:+)
+        puts multiples.reduce(&:+)
     end
-
 end
 
 multiples = Multiples.new
 multiples.sumMultiples(multiples.multiples)
+
+#solution 3
+# class Multiples
+
+#     def multiples
+#         (1..999).select do |i|
+#             i % 3 == 0 || i % 5 == 0
+#         end
+#     end
+
+#     def sumMultiples(multiples)
+#         puts total = multiples.inject(&:+)
+#     end
+
+# end
+
+# multiples = Multiples.new
+# multiples.sumMultiples(multiples.multiples)
